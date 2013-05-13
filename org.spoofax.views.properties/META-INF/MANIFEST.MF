@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Properties
+Bundle-SymbolicName: org.spoofax.views.properties;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.spoofax.views.properties.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.spoofax.terms,
+ org.eclipse.ui.views,
+ org.eclipse.jface.text
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.spoofax.views.properties
