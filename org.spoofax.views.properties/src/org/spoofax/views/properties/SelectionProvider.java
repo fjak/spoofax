@@ -8,7 +8,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 
-public class StrategoTermSelectionProvider implements ISelectionProvider {
+public class SelectionProvider implements ISelectionProvider {
 
 	ISelection selection;
 	List<ISelectionChangedListener> listeners = new ArrayList<ISelectionChangedListener>();

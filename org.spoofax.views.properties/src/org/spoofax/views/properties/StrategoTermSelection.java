@@ -4,22 +4,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.jface.text.ITextSelection;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.spoofax.interpreter.terms.IStrategoTerm;
 
+/**
+ * @author oskarvanrest
+ */
 public class StrategoTermSelection implements IStructuredSelection {
 
-	ITextSelection textSelection;
 	List properties = new ArrayList();
+	ISelection actualSelection;
 	
-	public StrategoTermSelection(ITextSelection textSelection, IStrategoTerm properties) {
-		this.textSelection = textSelection;
-		this.properties.add(new AdaptableStrategoTerm(properties));
+	public StrategoTermSelection(IStrategoTerm properties) {
+		this(properties, null);
 	}
 	
-	public ITextSelection getTextSelection() {
-		return textSelection;
+	/**
+	 * In some cases, an editor or view already provides a selection that does not contribute to the
+	 * properties view, but is used for different applications. Textual editors, for example, provide
+	 * an ITextSelection. By means of this constructor and method 'getActualSelection()', one can
+	 * maintain and retrieve such 'actual' selections.
+	 * TODO: may need to find a better name than 'actual selection'
+	 * @param actualSelection
+	 * @param properties
+	 */
+	public StrategoTermSelection(IStrategoTerm properties, ISelection actualSelection) {
+		this.properties.add(new AdaptableStrategoTerm(properties));
+		this.actualSelection = actualSelection;
+	}
+	
+	public ISelection getActualSelection() {
+		return actualSelection;
 	}
 	
 	@Override
